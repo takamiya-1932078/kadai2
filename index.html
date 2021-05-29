@@ -29,8 +29,8 @@
 
 
 // 箱を作成
-var geometry = new THREE.BoxGeometry(1, 1, 1);
-var material = new THREE.MeshPhongMaterial({ color: 0x0000ff })
+var geometry = new THREE.BoxGeometry(0.5, 1, 1.5);
+var material = new THREE.MeshPhongMaterial({ color: 0x1111ff })
 var box = new THREE.Mesh(geometry, material);
 box.position.z = -5;
 scene.add(box);   
@@ -77,7 +77,7 @@ scene.add( sphere3 );
       sphere3.position.z -= 0.10;
       box.rotation.x += 0.01;
       box.rotation.y += 0.01;
-      box.scale.set += (0.5,1,1.5);
+      box.scale.z = 2.00;
   
       renderer.render(scene, camera);
     };
