@@ -68,19 +68,10 @@ scene.add( sphere3 );
     // シーンに追加
     scene.add(directionalLight2);
     
-    // 照明を作成
-var light = new THREE.SpotLight(0xFFFFFF, 2, 100, Math.PI / 4, 1);
-// ライトに影を有効にする
-light.castShadow = true;
+    // 矩形光源を作成
+// new THREE.RectAreaLight(色, 光の強さ, 幅, 高さ)
+var light = new THREE.RectAreaLight(0xFFFFFF, 5.0, 10, 10);
 scene.add(light);
-    
-    // 床を作成
-var meshFloor = new THREE.Mesh(
-  new THREE.BoxGeometry(2000, 0.1, 2000),
-  new THREE.MeshStandardMaterial());
-// 影を受け付ける
-meshFloor.receiveShadow = true;
-scene.add(meshFloor)
 
    
     // 初回実行
