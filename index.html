@@ -12,8 +12,8 @@
  <script>
   var init = function() {
 
-    var width = 800,
-        height = 600;
+    var width = 1200,
+        height = 800;
   
     // レンダラーを作成
     var renderer = new THREE.WebGLRenderer();
@@ -34,7 +34,12 @@ var torus = new THREE.Mesh( torusGeometry, torusMaterial );
 torus.position.set( 0.5, 0, -20);
 scene.add( torus );
 
-
+// 箱を作成
+var geometry = new THREE.BoxGeometry(1, 1, 1);
+var material = new THREE.MeshPhongMaterial({ color: 0x0000ff })
+var box = new THREE.Mesh(geometry, material);
+box.position.z = -5;
+scene.add(box);   
 
 //なんかクネクネしてるやつ
 var torusKnotGeometry = new THREE.TorusKnotGeometry( 1.5, 0.3, 20, 6, 3, 5 ); 
