@@ -75,8 +75,9 @@ scene.add( sphere3 );
     
     // 矩形光源を作成
 // new THREE.RectAreaLight(色, 光の強さ, 幅, 高さ)
-var light = new THREE.RectAreaLight(0xFFFFFF, 5.0, 10, 10);
-scene.add(light);
+var light3 = new THREE.RectAreaLight(0xFFFFFF, 5.0, 10, 10);
+light3.position.set(1, 1, 1);
+scene.add(light3);
 
    
     // 初回実行
@@ -98,8 +99,8 @@ scene.add(light);
           var lx = r * Math.cos(t);
           var lz = r * Math.sin(t);
           var ly = 5.0 + 5.0 * Math.sin(t / 3.0);
-          light.position.set(lx, ly, lz);
-          light.lookAt(new THREE.Vector3(0, 0, 0));
+          light3.position.set(lx, ly, lz);
+          light3.lookAt(new THREE.Vector3(0, 0, 0));
     };
     update();
   }
