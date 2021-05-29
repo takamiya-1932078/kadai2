@@ -67,11 +67,11 @@ scene.add( sphere3 );
     // シーンに追加
     scene.add(directionalLight1);
     
-    // 平行光源2
-        var directionalLight2 = new THREE.DirectionalLight(0xffffff);
-    directionalLight2.position.set(-1, 1, 1);
+    // 点光源
+        var PointLight2 = new THREE.PointLight(0xffffff,2,50,1.0);
+    PointLight2.position.set(-1, 1, 1);
     // シーンに追加
-    scene.add(directionalLight2);
+    scene.add(PointLight2);
     
     // 矩形光源を作成
 // new THREE.RectAreaLight(色, 光の強さ, 幅, 高さ)
