@@ -27,12 +27,6 @@
     var camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
 
 
-  //ドーナッツ
-var torusGeometry = new THREE.TorusGeometry( 3.3, 1.5, 24, 24 ); 
-var torusMaterial = new THREE. MeshToonMaterial( { color: 0xd66b00 } );
-var torus = new THREE.Mesh( torusGeometry, torusMaterial );
-torus.position.set( 0.5, 0, -20);
-scene.add( torus );
 
 // 箱を作成
 var geometry = new THREE.BoxGeometry(1, 1, 1);
@@ -45,7 +39,7 @@ scene.add(box);
 //球
 var sphereGeometry = new THREE.SphereGeometry( 0.5, 32, 32 ); 
 var sphereMaterial1 = new THREE. MeshPhongMaterial( {color: 0xff8800,wireframe: true} );
-var sphereMaterial2 = new THREE. MeshLambertMaterial( {color: 0xff2200,wireframe: true} );
+var sphereMaterial2 = new THREE. MeshLambertMaterial( {color: 0xff2200} );
 var sphereMaterial3 = new THREE. MeshNormalMaterial( {color: 0xff0123,wireframe: true} );    
 var sphere1 = new THREE.Mesh( sphereGeometry, sphereMaterial1 );
 var sphere2 = new THREE.Mesh( sphereGeometry, sphereMaterial2 );
