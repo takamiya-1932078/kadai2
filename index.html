@@ -51,7 +51,9 @@ var sphereMaterial3 = new THREE. MeshNormalMaterial( {color: 0xff0123,wireframe:
 var sphere1 = new THREE.Mesh( sphereGeometry, sphereMaterial1 );
 var sphere2 = new THREE.Mesh( sphereGeometry, sphereMaterial2 );
 var sphere3 = new THREE.Mesh( sphereGeometry, sphereMaterial3 );    
-  
+sphere1.position.set( 1.3, 0, -5 );
+sphere2.position.set( -1.3, 0, -5 );
+sphere3.position.set( 1.-3, 0, -5 );  
 scene.add( sphere1 );
 scene.add( sphere2 );
 scene.add( sphere3 );    
@@ -74,7 +76,7 @@ scene.add( sphere3 );
     // 矩形光源を作成
     // new THREE.RectAreaLight(色, 光の強さ, 幅, 高さ)
     var light3 = new THREE.RectAreaLight(0xFFFFFF, 5.0, 10, 10);
-    
+    light3.position.set(1, 1, 1);
     scene.add(light3);
     
     // 照明を可視化するヘルパー
