@@ -60,19 +60,6 @@ sphere2.position.set( -1.3, 0, -5 );
 scene.add( sphere1 );
 scene.add( sphere2 );
 
-  // 球体を作成
-  var geometry = new THREE.SphereGeometry(300, 30, 30);
-  // 画像を読み込む
-  var loader = new THREE.TextureLoader();
-  var texture = loader.load('imgs/earthmap1k.jpg');
-  // マテリアルにテクスチャーを設定
-  var material = new THREE.MeshStandardMaterial({
-    map: texture
-  });
-  // メッシュを作成
-  var mesh = new THREE.Mesh(geometry, material);
-  // 3D空間にメッシュを追加
-  scene.add(mesh);
 
     // 平行光源1
     var directionalLight1 = new THREE.DirectionalLight(0xffffff);
@@ -80,20 +67,12 @@ scene.add( sphere2 );
     // シーンに追加
     scene.add(directionalLight1);
     
-    tick();
-    
     // 平行光源2
         var directionalLight2 = new THREE.DirectionalLight(0xffffff);
     directionalLight2.position.set(-1, 1, 1);
     // シーンに追加
     scene.add(directionalLight2);
 
-
-  
-    // マテリアルにテクスチャーを設定
-var material = new THREE.MeshStandardMaterial({
-  map: new THREE.TextureLoader().load('imgs/earthmap1k.jpg')
-});
    
     // 初回実行
     var update = function tick() {
@@ -106,11 +85,9 @@ var material = new THREE.MeshStandardMaterial({
       sphere2.rotation.y += 0.01;
       box.rotation.x += 0.01;
       box.rotation.y += 0.01;
-      mesh.rotation.y += 0.01;
       torus.position.z +=0.01;
   
       renderer.render(scene, camera);
-      requestAnimationFrame(tick);
     };
     update();
   }
