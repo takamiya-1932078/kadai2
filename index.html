@@ -74,10 +74,14 @@ scene.add( sphere3 );
     scene.add(PointLight2);
     
     // 矩形光源を作成
-// new THREE.RectAreaLight(色, 光の強さ, 幅, 高さ)
-var light3 = new THREE.RectAreaLight(0xFFFFFF, 5.0, 10, 10);
-light3.position.set(1, 1, 1);
-scene.add(light3);
+    // new THREE.RectAreaLight(色, 光の強さ, 幅, 高さ)
+    var light3 = new THREE.RectAreaLight(0xFFFFFF, 5.0, 10, 10);
+    light3.position.set(1, 1, 1);
+    scene.add(light3);
+    
+    // 照明を可視化するヘルパー
+        var lightHelper = new THREE.PointLightHelper(PointLight2);
+        scene.add(lightHelper);
 
    
     // 初回実行
