@@ -40,8 +40,14 @@ var material = new THREE.MeshPhongMaterial({ color: 0x1111ff })
 var box = new THREE.Mesh(geometry, material);
 box.position.z = -5;
 box.castShadow = true;
-scene.add(box);   
-
+scene.add(box);
+    
+//角すい〜円すい
+var coneGeometry = new THREE.ConeGeometry( 0.5, 1, 5 );
+var coneMaterial = new THREE. MeshPhongMaterial( {color: 0x0000ff} );
+var cone = new THREE.Mesh( coneGeometry, coneMaterial );
+cone.position.set( 0, 0, -5 );
+scene.add( cone );
 
 //球
 var sphereGeometry = new THREE.SphereGeometry( 0.5, 32, 32 ); 
@@ -58,8 +64,28 @@ scene.add( sphere1 );
 scene.add( sphere2 );
 scene.add( sphere3 );    
 
+// グループを作る
+var group = new THREE.Group();
+// 3D空間にグループを追加する
+scene.add(group);
 
-     
+for (let i = 0; i < 10; i++) {
+  // 球体を作成
+  var material2 = new THREE.MeshNormalMaterial();
+  var geometry2 = new THREE.BoxGeometry(30, 30, 30);
+  var mesh = new THREE.Mesh(geometry2, material2);
+
+  // 配置座標を計算
+  var radian = i / 10 * Math.PI * 2;
+  mesh.position.set(
+    200 * Math.cos(radian), // X座標
+    30, // Y座標
+    200 * Math.sin(radian) // Z座標
+  );
+
+  // グループに追加する
+  group.add(mesh);
+}    
 
     // 平行光源1
     var directionalLight1 = new THREE.DirectionalLight(0xffffff);
@@ -91,8 +117,7 @@ scene.add( sphere3 );
 
    
     // 初回実行
-    var update = function () {
-      requestAnimationFrame(update);
+    var update = function tick() {
   
       // 箱を回転させる
       sphere1.rotation.x += 0.01;
@@ -101,8 +126,11 @@ scene.add( sphere3 );
       box.rotation.x += 0.01;
       box.rotation.y += 0.01;
       box.scale.z = 2.00;
+      cone.rotation.y += 3.00;
+      group.rotation.y += 0.01;
   
       renderer.render(scene, camera);
+      requestAnimationFrame(tick);
       
       var t = Date.now() / 1000;
           var r = 10.0;
