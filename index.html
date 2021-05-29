@@ -18,6 +18,7 @@
     // レンダラーを作成
     var renderer = new THREE.WebGLRenderer();
     renderer.setSize(width, height);
+    renderer.shadowMap.enabled = true;
     document.body.appendChild(renderer.domElement);
   
     // シーンを作成
@@ -33,6 +34,7 @@ var geometry = new THREE.BoxGeometry(0.5, 1, 1.5);
 var material = new THREE.MeshPhongMaterial({ color: 0x1111ff })
 var box = new THREE.Mesh(geometry, material);
 box.position.z = -5;
+box.castShadow = true;
 scene.add(box);   
 
 
@@ -65,6 +67,20 @@ scene.add( sphere3 );
     directionalLight2.position.set(-1, 1, 1);
     // シーンに追加
     scene.add(directionalLight2);
+    
+    // 照明を作成
+var light = new THREE.SpotLight(0xFFFFFF, 2, 100, Math.PI / 4, 1);
+// ライトに影を有効にする
+light.castShadow = true;
+scene.add(light);
+    
+    // 床を作成
+var meshFloor = new THREE.Mesh(
+  new THREE.BoxGeometry(2000, 0.1, 2000),
+  new THREE.MeshStandardMaterial());
+// 影を受け付ける
+meshFloor.receiveShadow = true;
+scene.add(meshFloor)
 
    
     // 初回実行
